@@ -4,6 +4,9 @@ const helmet = require('helmet')
 const morgan = require('morgan')
 const app = express()
 
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
+console.log(`app_env: ${app.get(env)}`)
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(logger)
