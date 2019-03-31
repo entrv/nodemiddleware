@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(logger)
 app.use(express.static('public'))
 app.use(helmet())
+
 app.use(morgan('tiny'))
 app.get('/', (req, res) => {
 	res.send('hellow')
