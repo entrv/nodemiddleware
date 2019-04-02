@@ -19,6 +19,7 @@
   "homepage": "https://github.com/entrv/nodemiddleware#readme",
   "dependencies": {
     "config": "^3.0.1",
+    "debug": "^4.1.1",
     "express": "^4.16.4",
     "helmet": "^3.16.0",
     "joi": "^14.3.1",
