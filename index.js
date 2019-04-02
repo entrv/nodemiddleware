@@ -8,10 +8,13 @@ const app = express();
 //use set DEBUG=app:* or set DEBUG=app:startup,app:db
 //DEBUG=app:* nodemon index.js
 const startupDebugger = require('debug')('app:startup');
-//const dbDebugger = require('debug')('app:db');
+const dbDebugger = require('debug')('app:db');
 
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 console.log(`app_env: ${app.get('env')}`);
+
+app.set('view engine', 'pug');
+app.set('views', './views'); //default
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -32,7 +35,8 @@ if (app.get('env') == 'development') {
 dbDebugger('connected to database....');
 
 app.get('/', (req, res) => {
-	res.send('hellow');
+	res.render('index', { title: 'my ex app', message: 'hello you' });
+	//res.send('hellow');
 });
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log('start' + port));
